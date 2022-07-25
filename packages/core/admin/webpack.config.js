@@ -123,10 +123,6 @@ module.exports = ({
                   cacheDirectory: true,
                   cacheCompression: isProduction,
                   compact: isProduction,
-                  presets: [
-                    require.resolve('@babel/preset-env'),
-                    require.resolve('@babel/preset-react'),
-                  ],
                   plugins: [
                     [
                       require.resolve('@strapi/babel-plugin-switch-ee-ce'),
@@ -135,15 +131,6 @@ module.exports = ({
                         roots,
                       },
                     ],
-
-                    [
-                      require.resolve('@babel/plugin-transform-runtime'),
-                      {
-                        helpers: true,
-                        regenerator: true,
-                      },
-                    ],
-                    [require.resolve('babel-plugin-styled-components'), { pure: true }],
                   ],
                 },
               },
