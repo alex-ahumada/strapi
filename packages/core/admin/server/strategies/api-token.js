@@ -26,8 +26,8 @@ const authenticate = async ctx => {
   const token = extractToken(ctx);
 
   // always authenticate graphql playground if it's enabled
-  const graphqlEndpoint = strapi.config.get('plugin.graphql', {}).endpoint;
-  if (graphqlEndpoint === ctx.url || (!graphqlEndpoint && ctx.url === '/graphql')) {
+  const { endpoint } = strapi.config.get('plugin.graphql', {});
+  if (endpoint === ctx.url || (!endpoint && ctx.url === '/graphql')) {
     return { authenticated: true };
   }
 
